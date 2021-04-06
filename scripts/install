@@ -92,7 +92,7 @@ ynh_script_progression --message="Configuring system user..."
 ynh_system_user_create --username=$app --home_dir=$final_path
 
 #=================================================
-# INSTALL WHITEBOPHIR
+# INSTALL PETROLETTE
 #=================================================
 ynh_script_progression --message="Installing application using node..."
 
@@ -129,7 +129,7 @@ ynh_add_systemd_config  --others_var="port ynh_node_load_PATH"
 ynh_script_progression --message="Starting a systemd service..."
 
 # Start a systemd service
-ynh_systemd_action --service_name=$app --action=start --log_path=systemd --line_match="server started"
+ynh_systemd_action --service_name=$app --action=start --log_path=systemd 
 
 #=================================================
 # SETUP SSOWAT

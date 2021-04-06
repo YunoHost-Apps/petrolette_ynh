@@ -8,7 +8,7 @@ Environment="PORT=__PORT__"
 Environment="__YNH_NODE_LOAD_PATH__"
 User=__APP__
 Group=__APP__
-ExecStart=/bin/sh -c ' node http/server.jst'
+ExecStart=/bin/sh -c ' node http/server.js'
 WorkingDirectory=__FINALPATH__/
 StandardOutput=syslog
 StandardError=syslog
