@@ -1,6 +1,6 @@
 # Petrolette for YunoHost
 
-[![Integration level](https://dash.yunohost.org/integration/whitebophir.svg)](https://dash.yunohost.org/appci/app/petrolette) ![](https://ci-apps.yunohost.org/ci/badges/whitebophir.status.svg) ![](https://ci-apps.yunohost.org/ci/badges/whitebophir.maintain.svg)  
+[![Integration level](https://dash.yunohost.org/integration/petrolette.svg)](https://dash.yunohost.org/appci/app/petrolette) ![](https://ci-apps.yunohost.org/ci/badges/petrolette.status.svg) ![](https://ci-apps.yunohost.org/ci/badges/petrolette.maintain.svg)  
 [![Install Petrolette with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=petrolette)
 
 *[Lire ce readme en français.](./README_fr.md)*
@@ -27,7 +27,7 @@ Petrolette
 
 ## Demo
 
-* [Official demo](wbo.ophir.dev)
+* [Official demo](petrolette.space)
 
 ## Documentation
 
@@ -36,8 +36,8 @@ Petrolette
 ## YunoHost specific features
 #### Supported architectures
 
-* x86-64 - [![Build Status](https://ci-apps.yunohost.org/ci/logs/whitebophir%20%28Apps%29.svg)](https://ci-apps.yunohost.org/ci/apps/petrolette/)
-* ARMv8-A - [![Build Status](https://ci-apps-arm.yunohost.org/ci/logs/whitebophir%20%28Apps%29.svg)](https://ci-apps-arm.yunohost.org/ci/apps/petrolette/)
+* x86-64 - [![Build Status](https://ci-apps.yunohost.org/ci/logs/petrolette%20%28Apps%29.svg)](https://ci-apps.yunohost.org/ci/apps/petrolette/)
+* ARMv8-A - [![Build Status](https://ci-apps-arm.yunohost.org/ci/logs/petrolette%20%28Apps%29.svg)](https://ci-apps-arm.yunohost.org/ci/apps/petrolette/)
 
 ## Links
 
@@ -50,11 +50,11 @@ Petrolette
 
 ## Developer info
 
-Please send your pull request to the [testing branch](https://github.com/YunoHost-Apps/whitebophir_ynh/tree/dev).
+Please send your pull request to the [testing branch](https://github.com/YunoHost-Apps/petrolette/tree/dev).
 
 To try the testing branch, please proceed like that.
 ```
-sudo yunohost app install https://github.com/YunoHost-Apps/whitebophir_ynh/tree/dev --debug
+sudo yunohost app install https://github.com/oiseauroch/petrolette_ynh/tree/dev --debug
 or
-sudo yunohost app upgrade whitebophir -u https://github.com/YunoHost-Apps/whitebophir_ynh/tree/dev --debug
+sudo yunohost app upgrade whitebophir -u https://github.com/oiseauroch/petrolette_ynh/tree/dev --debug
 ```
