@@ -1,4 +1,4 @@
-SOURCE_URL="https://framagit.org/yphil/petrolette/-/archive/e122e90dfca6db7f288c510941655522582895b4/petrolette-e122e90dfca6db7f288c510941655522582895b4.tar.gz"
+SOURCE_URL=https://framagit.org/yphil/petrolette/-/archive/e122e90dfca6db7f288c510941655522582895b4/petrolette-e122e90dfca6db7f288c510941655522582895b4.tar.gz
 SOURCE_SUM=26914cb6a84d97fe88d0e06a39e926da7233d2beb9389e52641ac6a6cdb5d598
 SOURCE_SUM_PRG=sha256sum
 SOURCE_FORMAT=tar.gz
