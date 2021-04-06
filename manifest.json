@@ -36,7 +36,7 @@
                 "type": "path",
                 "ask": {
                     "en": "choose a path",
-                    "fr": "Choisissez un chemin
+                    "fr": "Choisissez un chemin"
                 },
                 "example": "petrolette",
                 "default": "/"
