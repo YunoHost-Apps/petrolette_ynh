@@ -54,7 +54,7 @@ Please send your pull request to the [testing branch](https://github.com/YunoHos
 
 To try the testing branch, please proceed like that.
 ```
-sudo yunohost app install https://github.com/oiseauroch/petrolette_ynh/tree/dev --debug
+sudo yunohost app install https://github.com/Yunohost-Apps/petrolette_ynh/tree/dev --debug
 or
-sudo yunohost app upgrade petrolette -u https://github.com/oiseauroch/petrolette_ynh/tree/dev --debug
+sudo yunohost app upgrade petrolette -u https://github.com/Yunohost-Apps/petrolette_ynh/tree/dev --debug
 ```
