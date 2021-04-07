@@ -32,7 +32,7 @@
                 "type": "boolean",
                 "default": true,
                 "help" : {
-                    "fr" : "Cette page sera accessible par n'importe qui. En revanche, la configuration reste personnelle"
+                    "fr" : "Cette page sera accessible par n'importe qui. En revanche, la configuration reste personnelle",
                     "en" : "The page will be accessible by anyone."
                 }
             }
