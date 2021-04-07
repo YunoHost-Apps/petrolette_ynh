@@ -14,7 +14,7 @@
         "email": "tobias.ollive@oiseauroch.fr"
     }],
     "requirements": {
-        "yunohost": ">= 4.0.0"
+        "yunohost": ">= 4.1.0"
     },
     "multi_instance": true,
     "services": [
@@ -25,30 +25,16 @@
             {
                 "name": "domain",
                 "type": "domain",
-                "ask": {
-                    "en": "Choose a domain for Petrolette",
-                    "fr": "Choisissez un domaine pour Petrolette"
-                },
                 "example": "domain.org"
-            },
-            {
-                "name": "path",
-                "type": "path",
-                "ask": {
-                    "en": "choose a path",
-                    "fr": "Choisissez un chemin"
-                },
-                "example": "petrolette",
-                "default": "/"
             },
             {
                 "name": "is_public",
                 "type": "boolean",
-                "ask": {
-                    "en": "Is it a public application?",
-                    "fr": "Cette application doit-elle être publique ?"
-                },
-                "default": true
+                "default": true,
+                "help" : {
+                    "fr" : "Cette page sera accessible par n'importe qui. En revanche, la configuration reste personnelle"
+                    "en" : "The page will be accessible by anyone."
+                }
             }
         ]
     }
