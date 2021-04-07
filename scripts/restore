@@ -82,7 +82,7 @@ chmod -R o-rwx $final_path
 ynh_script_progression --message="Reinstalling dependencies..." --weight=1
 
 ynh_install_nodejs --nodejs_version=$NODEJS_VERSION
-ynh_remove_nodejs
+
 #=================================================
 # RESTORE SYSTEMD
 #=================================================

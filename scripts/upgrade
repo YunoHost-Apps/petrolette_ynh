@@ -18,9 +18,9 @@ app=$YNH_APP_INSTANCE_NAME
 
 domain=$(ynh_app_setting_get --app=$app --key=domain)
 path_url=$(ynh_app_setting_get --app=$app --key=path)
-#admin_email=$(ynh_app_setting_get --app=$app --key=admin_email)
 final_path=$(ynh_app_setting_get --app=$app --key=final_path)
-port=$(ynh_app_setting_get --app=$app --key=port)
+http_port=$(ynh_app_setting_get --app=$app --key=http_port)
+https_port=$(ynh_app_setting_get --app=$app --key=https_port)
 
 #=================================================
 # CHECK VERSION
@@ -77,7 +77,7 @@ ynh_add_nginx_config
 ynh_script_progression --message="Upgrading dependencies..." --weight=2
 
 ynh_install_nodejs --nodejs_version=$NODEJS_VERSION
-
+ynh_remove_nodejs
 #=================================================
 # UPDATE APP
 #=================================================
@@ -85,7 +85,7 @@ ynh_script_progression --message="Upgrading the app..." --weight=5
 
 pushd $final_path
 	ynh_use_nodejs
-	ynh_npm update --production
+	ynh_npm update
 popd
 
 #=================================================
@@ -112,6 +112,7 @@ ynh_add_systemd_config
 
 # Set permissions on app files
 chown -R $app:$app $final_path
+chmod -R o-rwx $final_path
 
 #=================================================
 # INTEGRATE SERVICE IN YUNOHOST

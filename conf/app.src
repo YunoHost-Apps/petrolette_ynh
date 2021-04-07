@@ -1,5 +1,5 @@
-SOURCE_URL=https://framagit.org/yphil/petrolette/-/archive/e122e90dfca6db7f288c510941655522582895b4/petrolette-e122e90dfca6db7f288c510941655522582895b4.tar.gz
-SOURCE_SUM=26914cb6a84d97fe88d0e06a39e926da7233d2beb9389e52641ac6a6cdb5d598
+SOURCE_URL=https://framagit.org/yphil/petrolette/-/archive/80f2c901ba4b40a12d664c7e567532ba5ea6157f/petrolette-80f2c901ba4b40a12d664c7e567532ba5ea6157f.tar.gz
+SOURCE_SUM=0fc5c6bc6f850c8e348faa5c0defd25ecf7ec1e35dda3c804f201c818f867649
 SOURCE_SUM_PRG=sha256sum
 SOURCE_FORMAT=tar.gz
 SOURCE_IN_SUBDIR=true
