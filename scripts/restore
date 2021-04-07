@@ -102,7 +102,7 @@ systemctl enable $app.service --quiet
 #=================================================
 ynh_script_progression --message="Integrating service in YunoHost..." --weight=1
 
-yunohost service add $app --description="The news reader that doesn't know you" --log="/home/yunohost.app/${app}/storage/logs/petrollette.log"
+yunohost service add $app --description="The news reader that doesn't know you" --log="/home/yunohost.app/${app}/storage/logs/petrolette.log"
 
 #=================================================
 # START SYSTEMD SERVICE
