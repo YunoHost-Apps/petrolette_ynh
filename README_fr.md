@@ -49,7 +49,7 @@ Merci de faire vos pull request sur la [branche dev](https://github.com/oiseauro
 
 Pour essayer la branche testing, procédez comme suit.
 ```
-sudo yunohost app install https://github.com/oiseauroch/petrolette/tree/dev --debug
+sudo yunohost app install https://github.com/Yunohost-Apps/petrolette/tree/dev --debug
 ou
-sudo yunohost app upgrade whitebophir -u https://github.com/oiseauroch/petrolette_ynh/tree/dev --debug
+sudo yunohost app upgrade whitebophir -u https://github.com/Yunohost-Apps/petrolette_ynh/tree/dev --debug
 ```
