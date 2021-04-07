@@ -1,4 +1,4 @@
-# Whiteboard pour YunoHost
+# Petrolette pour YunoHost
 
 [![Niveau d'intégration](https://dash.yunohost.org/integration/petrolette.svg)](https://dash.yunohost.org/appci/app/petrolette) ![](https://ci-apps.yunohost.org/ci/badges/petrolette.status.svg) ![](https://ci-apps.yunohost.org/ci/badges/petrolette.maintain.svg)  
 [![Installer Whitebophir avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.png)](https://install-app.yunohost.org/?app=petrolette)
