@@ -83,7 +83,7 @@ ynh_setup_source --dest_dir="$final_path"
 ynh_script_progression --message="Configuring nginx web server..."
 
 # Create a dedicated nginx config
-ynh_add_nginx_config
+ynh_add_nginx_config http_port
 
 #=================================================
 # CREATE DEDICATED USER
