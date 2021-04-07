@@ -77,7 +77,7 @@ ynh_add_nginx_config
 ynh_script_progression --message="Upgrading dependencies..." --weight=2
 
 ynh_install_nodejs --nodejs_version=$NODEJS_VERSION
-ynh_remove_nodejs
+
 #=================================================
 # UPDATE APP
 #=================================================
