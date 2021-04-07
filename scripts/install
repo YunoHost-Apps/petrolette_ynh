@@ -56,9 +56,9 @@ ynh_app_setting_set --app=$app --key=path_url --value=$path_url
 ynh_script_progression --message="Finding an available port..."
 
 # Find an available port
-http_port=$(ynh_find_port --port=8001)
+port=$(ynh_find_port --port=8001)
 https_port=$(ynh_find_port --port=8002)
-ynh_app_setting_set --app=$app --key=http_port --value=$http_port
+ynh_app_setting_set --app=$app --key=port --value=$port
 ynh_app_setting_set --app=$app --key=https_port --value=$https_port
 
 #=================================================
@@ -83,7 +83,7 @@ ynh_setup_source --dest_dir="$final_path"
 ynh_script_progression --message="Configuring nginx web server..."
 
 # Create a dedicated nginx config
-ynh_add_nginx_config http_port
+ynh_add_nginx_config 
 
 #=================================================
 # CREATE DEDICATED USER
@@ -123,7 +123,7 @@ yunohost service add $app --description="The news reader that doesn't know you" 
 ynh_script_progression --message="Configuring a systemd service..."
 
 # Create a dedicated systemd config
-ynh_add_systemd_config  --others_var="http_port ynh_node_load_PATH"
+ynh_add_systemd_config  --others_var="port ynh_node_load_PATH"
 
 #=================================================
 # START SYSTEMD SERVICE

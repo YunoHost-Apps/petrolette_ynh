@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 Type=simple
-Environment="PTL_PORT_HTTP=__HTTP_PORT__"
+Environment="PTL_PORT_HTTP=__PORT__"
 Environment="__YNH_NODE_LOAD_PATH__"
 User=__APP__
 Group=__APP__
