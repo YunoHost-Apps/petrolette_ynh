@@ -68,8 +68,11 @@ ynh_script_progression --message="Reinstalling the app ..." --weight=5
 ynh_setup_source --dest_dir="$final_path"
 
 pushd $final_path
-	ynh_use_nodejs
-	ynh_npm install 
+        TMP_HOME=$HOME
+        HOME=$(pwd)
+        ynh_use_nodejs
+        ynh_npm install 
+        HOME=$TMP_HOME
 popd
 
 

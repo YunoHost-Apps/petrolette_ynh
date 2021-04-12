@@ -84,8 +84,11 @@ ynh_install_nodejs --nodejs_version=$NODEJS_VERSION
 ynh_script_progression --message="Upgrading the app..." --weight=5
 
 pushd $final_path
-	ynh_use_nodejs
-	ynh_npm install 
+        TMP_HOME=$HOME
+        HOME=$(pwd)
+        ynh_use_nodejs
+        ynh_npm install
+        HOME=$TMP_HOME
 popd
 
 #=================================================
