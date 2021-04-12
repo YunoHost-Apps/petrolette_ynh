@@ -8,7 +8,7 @@
 		is_public=1	(PUBLIC|public=1|private=0)
 	; Checks
 		pkg_linter=1
-		setup_sub_dir=1
+		setup_sub_dir=0
 		setup_root=1
 		setup_nourl=0
 		setup_private=1
@@ -18,11 +18,3 @@
 		multi_instance=1
 		port_already_use=0
 		change_url=0
-;;; Options
-Email=
-Notification=none
-;;; Upgrade options
-	; commit=CommitHash
-		name=Name and date of the commit.
-		manifest_arg=domain=DOMAIN&path=PATH&admin=USER&language=fr&is_public=1&password=pass&port=666&
-

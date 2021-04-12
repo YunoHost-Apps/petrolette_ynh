@@ -24,7 +24,7 @@ ynh_abort_if_errors
 # RETRIEVE ARGUMENTS FROM THE MANIFEST
 #=================================================
 domain=$YNH_APP_ARG_DOMAIN
-path_url=$YNH_APP_ARG_PATH
+path_url="/"
 is_public=$YNH_APP_ARG_IS_PUBLIC
 
 app=$YNH_APP_INSTANCE_NAME
@@ -57,7 +57,9 @@ ynh_script_progression --message="Finding an available port..."
 
 # Find an available port
 port=$(ynh_find_port --port=8001)
+https_port=$(ynh_find_port --port=8002)
 ynh_app_setting_set --app=$app --key=port --value=$port
+ynh_app_setting_set --app=$app --key=https_port --value=$https_port
 
 #=================================================
 # INSTALL DEPENDENCIES
@@ -81,7 +83,7 @@ ynh_setup_source --dest_dir="$final_path"
 ynh_script_progression --message="Configuring nginx web server..."
 
 # Create a dedicated nginx config
-ynh_add_nginx_config
+ynh_add_nginx_config 
 
 #=================================================
 # CREATE DEDICATED USER
@@ -97,16 +99,22 @@ ynh_system_user_create --username=$app --home_dir=$final_path
 ynh_script_progression --message="Installing application using node..."
 
 pushd $final_path
+# use custom home value to avoid bower storing values in root and have right errors
+	TMP_HOME=$HOME
+	HOME=$(pwd)
 	ynh_use_nodejs
 	ynh_npm install 
+	HOME=$TMP_HOME
 popd
 
 #=================================================
 # SECURE FILES AND DIRECTORIES
 #=================================================
 
+
 chown -R $app:$app $final_path
 chmod -R o-rwx $final_path
+
 
 #=================================================
 # INTEGRATE SERVICE IN YUNOHOST
