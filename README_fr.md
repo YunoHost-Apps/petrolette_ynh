@@ -45,11 +45,11 @@ Les flux / sources sont organisés en onglets, qui peuvent contenir un nombre in
 
 ## Informations pour les développeurs
 
-Merci de faire vos pull request sur la [branche dev](https://github.com/oiseauroch/petrolette/tree/dev).
+Merci de faire vos pull request sur la [branche dev](https://github.com/oiseauroch/petrolette/tree/testing).
 
 Pour essayer la branche testing, procédez comme suit.
 ```
-sudo yunohost app install https://github.com/Yunohost-Apps/petrolette/tree/dev --debug
+sudo yunohost app install https://github.com/Yunohost-Apps/petrolette/tree/testing --debug
 ou
-sudo yunohost app upgrade whitebophir -u https://github.com/Yunohost-Apps/petrolette_ynh/tree/dev --debug
+sudo yunohost app upgrade whitebophir -u https://github.com/Yunohost-Apps/petrolette_ynh/tree/testing --debug
 ```
