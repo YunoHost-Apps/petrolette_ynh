@@ -19,7 +19,7 @@ News feeds are organized into tabs, which can contain an infinite number of colu
 
 Petrolette
 
-**Shipped version:** 1.2.5
+**Shipped version:** 1.3.5
 
 ## Screenshots
 

@@ -14,7 +14,7 @@ Si vous n'avez pas YunoHost, consultez [le guide](https://yunohost.org/#/install
 
 Les flux / sources sont organisés en onglets, qui peuvent contenir un nombre infini de colonnes ; tout est ré-organisable par glisser / déposer, et sauvegardé dans le cache du navigateur, ou dans le nuage.
 
-**Version incluse :** 1.2.5
+**Version incluse :** 1.3.5
 
 ## Captures d'écran
 
