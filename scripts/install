@@ -95,6 +95,9 @@ ynh_system_user_create --username=$app --home_dir=$final_path
 ynh_script_progression --message="Installing application using node..."
 
 pushd $final_path
+# set port in configuration file
+	sed -i "/HTTP_PORT/s/[0-9]*[0-9]/$port/" package.json
+	sed -i "/HTTPS_PORT/s/[0-9]*[0-9]/$https_port/" package.json
 # use custom home value to avoid bower storing values in root and have right errors
 	[[ -v HOME ]] && TMP_HOME=$HOME
 	HOME=$(pwd)
@@ -125,7 +128,7 @@ yunohost service add $app --description="The news reader that doesn't know you" 
 ynh_script_progression --message="Configuring a systemd service..."
 
 # Create a dedicated systemd config
-ynh_add_systemd_config  --others_var="port ynh_node_load_PATH"
+ynh_add_systemd_config
 
 #=================================================
 # START SYSTEMD SERVICE
