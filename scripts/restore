@@ -68,7 +68,7 @@ ynh_install_nodejs --nodejs_version=$NODEJS_VERSION
 ynh_script_progression --message="Reinstalling the app ..." --weight=5
 
 ynh_setup_source --dest_dir="$final_path"
-è
+
 pushd $final_path
 pushd $final_path
 # set port in configuration file
