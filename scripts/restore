@@ -6,7 +6,7 @@
 # IMPORT GENERIC HELPERS
 #=================================================
 
-#Keep this path for calling _common.sh inside the execution's context of backup and restore scripts
+# Keep this path for calling _common.sh inside the execution's context of backup and restore scripts
 source ../settings/scripts/_common.sh
 source /usr/share/yunohost/helpers
 
@@ -15,7 +15,6 @@ source /usr/share/yunohost/helpers
 #=================================================
 
 ynh_clean_setup () {
-	#### Remove this function if there's nothing to clean before calling the remove script.
 	true
 }
 # Exit if an error occurs during the execution of the script
@@ -39,9 +38,6 @@ https_port=$(ynh_app_setting_get --app=$app --key=https_port)
 #=================================================
 ynh_script_progression --message="Validating restoration parameters..." --weight=1
 
-ynh_webpath_available --domain=$domain --path_url=$path_url \
-	|| ynh_die --message="Path not available: ${domain}${path_url}"
-
 test ! -d $final_path \
 	|| ynh_die --message="There is already a directory: $final_path "
 
@@ -50,8 +46,17 @@ test ! -d $final_path \
 #=================================================
 # RESTORE THE NGINX CONFIGURATION
 #=================================================
+ynh_script_progression --message="Restoring the NGINX web server configuration..."
 
 ynh_restore_file --origin_path="/etc/nginx/conf.d/$domain.d/$app.conf"
+
+#=================================================
+# RECREATE THE DEDICATED USER
+#=================================================
+ynh_script_progression --message="Recreating the dedicated system user..." --weight=1
+
+# Create the dedicated user (if not existing)
+ynh_system_user_create --username=$app --home_dir=$final_path
 
 #=================================================
 # SPECIFIC RESTORATION
@@ -70,7 +75,6 @@ ynh_script_progression --message="Reinstalling the app ..." --weight=5
 ynh_setup_source --dest_dir="$final_path"
 
 pushd $final_path
-pushd $final_path
 # set port in configuration file
         sed -i "/HTTP_PORT/s/[0-9]*[0-9]/$port/" package.json
         sed -i "/HTTPS_PORT/s/[0-9]*[0-9]/$https_port/" package.json
@@ -80,19 +84,6 @@ pushd $final_path
         ynh_npm install
 	[[ -v TMP_HOME ]] && HOME=$TMP_HOME || unset HOME
 popd
-
-
-#=================================================
-# RECREATE THE DEDICATED USER
-#=================================================
-ynh_script_progression --message="Recreating the dedicated system user..." --weight=1
-
-# Create the dedicated user (if not existing)
-ynh_system_user_create --username=$app
-
-#=================================================
-# RESTORE USER RIGHTS
-#=================================================
 
 # Restore permissions on app files
 chown -R $app:$app $final_path
