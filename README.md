@@ -17,7 +17,7 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 
 The news reader that doesn't know you
 
-**Shipped version:** 1.4.3~ynh1
+**Shipped version:** 1.4.3~ynh2
 
 **Demo:** https://petrolette.space
 
