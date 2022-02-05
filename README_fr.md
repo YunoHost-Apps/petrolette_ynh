@@ -21,6 +21,11 @@ La page d'actu qui ne sait rien de toi
 
 ![](./doc/screenshots/petrolette.png)
 
+## Avertissements / informations importantes
+
+- require a dedicated domain
+
+- the application doesn't store anything locally. Restore/uprade operation is basically reinstalling the app.
 ## Documentations et ressources
 
 * Dépôt de code officiel de l'app : https://framagit.org/yphil/petrolette

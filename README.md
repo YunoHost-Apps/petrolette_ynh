@@ -25,6 +25,11 @@ The news reader that doesn't know you
 
 ![](./doc/screenshots/petrolette.png)
 
+## Disclaimers / important information
+
+- require a dedicated domain
+
+- the application doesn't store anything locally. Restore/uprade operation is basically reinstalling the app.
 ## Documentation and resources
 
 * Upstream app code repository: https://framagit.org/yphil/petrolette
