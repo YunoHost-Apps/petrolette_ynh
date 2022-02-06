@@ -37,6 +37,7 @@ ynh_script_progression --message="Backing up the app before upgrading (may take 
 # Backup the current version of the app
 ynh_backup_before_upgrade
 ynh_clean_setup () {
+	ynh_clean_check_starting
 	# Restore it if the upgrade fails
 	ynh_restore_upgradebackup
 }
@@ -50,7 +51,7 @@ ynh_abort_if_errors
 #=================================================
 ynh_script_progression --message="Stopping a systemd service..." --weight=1
 
-ynh_systemd_action --service_name=$app --action=stop --log_path="/var/log/$app/$app.log"
+ynh_systemd_action --service_name=$app --action=stop --log_path=systemd --line_match="Stopped"
 
 #=================================================
 # CREATE DEDICATED USER
@@ -58,7 +59,7 @@ ynh_systemd_action --service_name=$app --action=stop --log_path="/var/log/$app/$
 ynh_script_progression --message="Making sure dedicated system user exists..." --weight=8
 
 # Create a dedicated user (if not existing)
-ynh_system_user_create --username=$app --home_dir=$final_path
+ynh_system_user_create --username=$app --home_dir="$final_path"
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
@@ -106,9 +107,9 @@ pushd $final_path
         [[ -v TMP_HOME ]] && HOME=$TMP_HOME || unset HOME
 popd
 
-# Set permissions on app files
-chown -R $app:$app $final_path
-chmod -R o-rwx $final_path
+chmod 750 "$final_path"
+chmod -R o-rwx "$final_path"
+chown -R $app:$app "$final_path"
 
 #=================================================
 # SETUP SYSTEMD
@@ -125,14 +126,14 @@ ynh_add_systemd_config
 #=================================================
 ynh_script_progression --message="Integrating service in YunoHost..." --weight=1
 
-yunohost service add $app --description="The news reader that doesn't know you" --log="/home/yunohost.app/${app}/storage/logs/petrolette.log"
+yunohost service add $app --description="The news reader that doesn't know you"
 
 #=================================================
 # START SYSTEMD SERVICE
 #=================================================
 ynh_script_progression --message="Starting a systemd service..." --weight=3
 
-ynh_systemd_action --service_name=$app --action="start" --log_path="/var/log/$app/$app.log"
+ynh_systemd_action --service_name=$app --action="start" --log_path=systemd --line_match="Directory created"
 
 #=================================================
 # RELOAD NGINX
