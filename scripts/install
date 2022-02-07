@@ -13,6 +13,9 @@ source /usr/share/yunohost/helpers
 # MANAGE SCRIPT FAILURE
 #=================================================
 
+ynh_clean_setup () {
+	ynh_clean_check_starting
+}
 # Exit if an error occurs during the execution of the script
 ynh_abort_if_errors
 
@@ -72,7 +75,7 @@ ynh_install_nodejs --nodejs_version=$NODEJS_VERSION
 ynh_script_progression --message="Configuring system user..."
 
 # Create a system user
-ynh_system_user_create --username=$app --home_dir=$final_path
+ynh_system_user_create --username=$app --home_dir="$final_path"
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
@@ -110,8 +113,9 @@ pushd $final_path
 	[[ -v TMP_HOME ]] && HOME=$TMP_HOME || unset HOME
 popd
 
-chown -R $app:$app $final_path
-chmod -R o-rwx $final_path
+chmod 750 "$final_path"
+chmod -R o-rwx "$final_path"
+chown -R $app:$app "$final_path"
 
 #=================================================
 # SETUP SYSTEMD
@@ -128,7 +132,7 @@ ynh_add_systemd_config
 #=================================================
 ynh_script_progression --message="Integrating service in YunoHost..."
 
-yunohost service add $app --description="The news reader that doesn't know you" --log="/home/yunohost.app/${app}/storage/logs/petrolette.log"
+yunohost service add $app --description="The news reader that doesn't know you"
 
 #=================================================
 # START SYSTEMD SERVICE
@@ -136,7 +140,7 @@ yunohost service add $app --description="The news reader that doesn't know you" 
 ynh_script_progression --message="Starting a systemd service..."
 
 # Start a systemd service
-ynh_systemd_action --service_name=$app --action=start --log_path=systemd 
+ynh_systemd_action --service_name=$app --action=start --log_path=systemd --line_match="Directory created"
 
 #=================================================
 # SETUP SSOWAT
