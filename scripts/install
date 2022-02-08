@@ -13,12 +13,16 @@ source /usr/share/yunohost/helpers
 # MANAGE SCRIPT FAILURE
 #=================================================
 
+ynh_clean_setup () {
+	ynh_clean_check_starting
+}
 # Exit if an error occurs during the execution of the script
 ynh_abort_if_errors
 
 #=================================================
 # RETRIEVE ARGUMENTS FROM THE MANIFEST
 #=================================================
+
 domain=$YNH_APP_ARG_DOMAIN
 path_url="/"
 is_public=$YNH_APP_ARG_IS_PUBLIC
@@ -42,7 +46,7 @@ ynh_webpath_register --app=$app --domain=$domain --path_url=$path_url
 ynh_script_progression --message="Storing installation settings..."
 
 ynh_app_setting_set --app=$app --key=domain --value=$domain
-ynh_app_setting_set --app=$app --key=path_url --value=$path_url
+ynh_app_setting_set --app=$app --key=path --value=$path_url
 
 #=================================================
 # STANDARD MODIFICATIONS
@@ -53,8 +57,9 @@ ynh_script_progression --message="Finding an available port..."
 
 # Find an available port
 port=$(ynh_find_port --port=8001)
-https_port=$(ynh_find_port --port=8002)
 ynh_app_setting_set --app=$app --key=port --value=$port
+
+https_port=$(ynh_find_port --port=8002)
 ynh_app_setting_set --app=$app --key=https_port --value=$https_port
 
 #=================================================
@@ -63,6 +68,14 @@ ynh_app_setting_set --app=$app --key=https_port --value=$https_port
 ynh_script_progression --message="Installing dependencies..."
 
 ynh_install_nodejs --nodejs_version=$NODEJS_VERSION
+
+#=================================================
+# CREATE DEDICATED USER
+#=================================================
+ynh_script_progression --message="Configuring system user..."
+
+# Create a system user
+ynh_system_user_create --username=$app --home_dir="$final_path"
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
@@ -76,19 +89,13 @@ ynh_setup_source --dest_dir="$final_path"
 #=================================================
 # NGINX CONFIGURATION
 #=================================================
-ynh_script_progression --message="Configuring nginx web server..."
+ynh_script_progression --message="Configuring NGINX web server..."
 
-# Create a dedicated nginx config
-ynh_add_nginx_config 
+# Create a dedicated NGINX config
+ynh_add_nginx_config
 
 #=================================================
-# CREATE DEDICATED USER
-#=================================================
-ynh_script_progression --message="Configuring system user..."
-
-# Create a system user
-ynh_system_user_create --username=$app --home_dir=$final_path
-
+# SPECIFIC SETUP
 #=================================================
 # INSTALL PETROLETTE
 #=================================================
@@ -98,7 +105,7 @@ pushd $final_path
 # set port in configuration file
 	sed -i "/HTTP_PORT/s/[0-9]*[0-9]/$port/" package.json
 	sed -i "/HTTPS_PORT/s/[0-9]*[0-9]/$https_port/" package.json
-# use custom home value to avoid bower storing values in root and have right errors
+	# use custom home value to avoid bower storing values in root and have right errors
 	[[ -v HOME ]] && TMP_HOME=$HOME
 	HOME=$(pwd)
 	ynh_use_nodejs
@@ -106,21 +113,9 @@ pushd $final_path
 	[[ -v TMP_HOME ]] && HOME=$TMP_HOME || unset HOME
 popd
 
-#=================================================
-# SECURE FILES AND DIRECTORIES
-#=================================================
-
-
-chown -R $app:$app $final_path
-chmod -R o-rwx $final_path
-
-
-#=================================================
-# INTEGRATE SERVICE IN YUNOHOST
-#=================================================
-ynh_script_progression --message="Integrating service in YunoHost..."
-
-yunohost service add $app --description="The news reader that doesn't know you" --log="/home/yunohost.app/${app}/storage/logs/petrolette.log"
+chmod 750 "$final_path"
+chmod -R o-rwx "$final_path"
+chown -R $app:$app "$final_path"
 
 #=================================================
 # SETUP SYSTEMD
@@ -131,12 +126,21 @@ ynh_script_progression --message="Configuring a systemd service..."
 ynh_add_systemd_config
 
 #=================================================
+# GENERIC FINALIZATION
+#=================================================
+# INTEGRATE SERVICE IN YUNOHOST
+#=================================================
+ynh_script_progression --message="Integrating service in YunoHost..."
+
+yunohost service add $app --description="The news reader that doesn't know you"
+
+#=================================================
 # START SYSTEMD SERVICE
 #=================================================
 ynh_script_progression --message="Starting a systemd service..."
 
 # Start a systemd service
-ynh_systemd_action --service_name=$app --action=start --log_path=systemd 
+ynh_systemd_action --service_name=$app --action=start --log_path=systemd --line_match="Directory created"
 
 #=================================================
 # SETUP SSOWAT
@@ -146,14 +150,15 @@ ynh_script_progression --message="Configuring permissions..."
 # Make app public if necessary
 if [ $is_public -eq 1 ]
 then
-	# unprotected_uris allows SSO credentials to be passed anyway.
-    ynh_permission_update --permission="main" --add="visitors"
+	# Everyone can access the app.
+	# The "main" permission is automatically created before the install script.
+	ynh_permission_update --permission="main" --add="visitors"
 fi
 
 #=================================================
 # RELOAD NGINX
 #=================================================
-ynh_script_progression --message="Reloading nginx web server..."
+ynh_script_progression --message="Reloading NGINX web server..."
 
 ynh_systemd_action --service_name=nginx --action=reload
 
