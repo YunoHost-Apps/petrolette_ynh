@@ -13,7 +13,7 @@ Si vous n'avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour
 
 La page d'actu qui ne sait rien de toi
 
-**Version incluse :** 1.4.9~ynh1
+**Version incluse :** 1.5.3~ynh1
 
 **Démo :** https://petrolette.space
 
