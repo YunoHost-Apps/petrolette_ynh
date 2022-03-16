@@ -140,7 +140,7 @@ yunohost service add $app --description="The news reader that doesn't know you"
 ynh_script_progression --message="Starting a systemd service..."
 
 # Start a systemd service
-ynh_systemd_action --service_name=$app --action=start --log_path=systemd --line_match="Directory created"
+ynh_systemd_action --service_name=$app --action=start --log_path=systemd --line_match="(v1.5.6)"
 
 #=================================================
 # SETUP SSOWAT

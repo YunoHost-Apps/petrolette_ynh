@@ -1,5 +1,5 @@
-SOURCE_URL=https://framagit.org/yphil/petrolette/-/archive/v1.4.9/petrolette-v1.4.9.tar.gz
-SOURCE_SUM=d738bdbd50748c4658cfb1a1fe36c12b58c75d96b2d29accc386a49b44f7178c
+SOURCE_URL=https://framagit.org/yphil/petrolette/-/archive/v1.5.6/petrolette-v1.5.6.tar.gz
+SOURCE_SUM=f615a84aa5026ca18b79d3d14b2eaebd6e76dd047a325465d3d8957bc7bf5967
 SOURCE_SUM_PRG=sha256sum
 SOURCE_FORMAT=tar.gz
 SOURCE_IN_SUBDIR=true
