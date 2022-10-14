@@ -5,9 +5,10 @@ After=network.target
 [Service]
 Type=simple
 Environment="__YNH_NODE_LOAD_PATH__"
+Environment="NODE_ENV=production"
 User=__APP__
 Group=__APP__
-ExecStart=/bin/sh -c ' node http/server.js'
+ExecStart=/bin/sh -c ' npm unmanaged'
 WorkingDirectory=__FINALPATH__/
 StandardOutput=syslog
 StandardError=syslog

@@ -24,8 +24,9 @@ ynh_abort_if_errors
 #=================================================
 
 domain=$YNH_APP_ARG_DOMAIN
-path_url="/"
+path_url=$YNH_APP_ARG_PATH
 is_public=$YNH_APP_ARG_IS_PUBLIC
+mono_user=$YNH_APP_ARG_MONO_USER
 
 app=$YNH_APP_INSTANCE_NAME
 
@@ -47,6 +48,7 @@ ynh_script_progression --message="Storing installation settings..."
 
 ynh_app_setting_set --app=$app --key=domain --value=$domain
 ynh_app_setting_set --app=$app --key=path --value=$path_url
+ynh_app_setting_set --app=$app --key=mono_user --value=$mono_user
 
 #=================================================
 # STANDARD MODIFICATIONS
@@ -106,8 +108,12 @@ pushd $final_path
 	sed -i "/HTTP_PORT/s/[0-9]*[0-9]/$port/" package.json
 	sed -i "/HTTPS_PORT/s/[0-9]*[0-9]/$https_port/" package.json
 	# use custom home value to avoid bower storing values in root and have right errors
+	if [ $mono_user -eq 1 ] ; then
+	    ynh_add_config --template="petrolette.config.json" --destination="petrolette.config.json"
+	fi
 	[[ -v HOME ]] && TMP_HOME=$HOME
 	HOME=$(pwd)
+	export NODE_ENV=production
 	ynh_use_nodejs
 	ynh_npm install 
 	[[ -v TMP_HOME ]] && HOME=$TMP_HOME || unset HOME

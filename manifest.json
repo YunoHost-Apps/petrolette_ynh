@@ -6,7 +6,7 @@
         "en": "The news reader that doesn't know you",
         "fr": "La page d'actu qui ne sait rien de toi"
     },
-    "version": "1.5.3~ynh1",
+    "version": "1.6.0~ynh1",
     "url": "https://framagit.org/yphil/petrolette",
     "upstream": {
         "license": "AGPL-3.0-only",
@@ -30,6 +30,19 @@
             {
                 "name": "domain",
                 "type": "domain"
+            },
+            {
+                "name": "path",
+                "type": "path",
+            },
+            {
+                "name": "mono_user",
+                "type": "boolean",
+                "default": true,
+                "help" : {
+                    "fr" : "Cette instance ne proposera qu'une seule selection de flux, la même pour tous les visiteurs"
+                    "en" : "This instance will have the same rss selection for any visitor visiting the page"
+                    }
             },
             {
                 "name": "is_public",

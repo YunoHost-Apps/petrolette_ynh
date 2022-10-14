@@ -103,7 +103,7 @@ pushd $final_path
 	[[ -v HOME ]] && TMP_HOME=$HOME
         HOME=$(pwd)
         ynh_use_nodejs
-        ynh_npm install
+        ynh_npm update
         [[ -v TMP_HOME ]] && HOME=$TMP_HOME || unset HOME
 popd
 
@@ -133,7 +133,7 @@ yunohost service add $app --description="The news reader that doesn't know you"
 #=================================================
 ynh_script_progression --message="Starting a systemd service..." --weight=3
 
-ynh_systemd_action --service_name=$app --action="start" --log_path=systemd --line_match="(v1.5.6)"
+ynh_systemd_action --service_name=$app --action="start" --log_path=systemd --line_match="(v1.6.0)"
 
 #=================================================
 # RELOAD NGINX
