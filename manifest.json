@@ -34,15 +34,21 @@
             {
                 "name": "path",
                 "type": "path",
+                "example": "/petrolette",
+                "default": "/petrolette"
             },
             {
                 "name": "mono_user",
                 "type": "boolean",
                 "default": true,
+                "ask": {
+                    "fr" : "Cette instance est elle mono utilisateur ?",
+                    "en" : "Is this instance mono user ?"
+                },
                 "help" : {
-                    "fr" : "Cette instance ne proposera qu'une seule selection de flux, la même pour tous les visiteurs"
-                    "en" : "This instance will have the same rss selection for any visitor visiting the page"
-                    }
+                    "fr" : "Cette instance ne proposera qu'une seule selection de flux, la même pour tous les visiteurs",
+                    "en" : "This instance will have the same rss selection for any visitor visiting the page"
+                }
             },
             {
                 "name": "is_public",
