@@ -17,19 +17,24 @@ Si vous n'avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour
 
 La page d'actu qui ne sait rien de toi
 
-**Version incluse :** 1.5.3~ynh1
+**Version incluse :** 1.6.0~ynh1
 
 **Démo :** https://petrolette.space
 
 ## Captures d'écran
 
-![Capture d'écran de Petrolette](./doc/screenshots/petrolette.png)
+![Capture d'écran de Petrolette](./doc/screenshots/petrolette.webp)
 
 ## Avertissements / informations importantes
 
-- require a dedicated domain
 
-- the application doesn't store anything locally. Restore/uprade operation is basically reinstalling the app.
+- The application has 2 modes 
+    - multi user : each user store is own config itself.
+    - mono user : configuration is store locally in the server. Each visitor see the same page. 
+        /!\ For now, there is no any mechanism included for feed protection. Any visitor can modify the feed list.
+
+- If you like this software, Please consider to [support the Pétrolette project by sending a donation](https://liberapay.com/yPhil/donate). Even the smallest amount will help a lot.
+
 ## Documentations et ressources
 
 * Dépôt de code officiel de l'app : <https://framagit.org/yphil/petrolette>

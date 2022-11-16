@@ -17,19 +17,24 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 
 The news reader that doesn't know you
 
-**Shipped version:** 1.5.3~ynh1
+**Shipped version:** 1.6.0~ynh1
 
 **Demo:** https://petrolette.space
 
 ## Screenshots
 
-![Screenshot of Petrolette](./doc/screenshots/petrolette.png)
+![Screenshot of Petrolette](./doc/screenshots/petrolette.webp)
 
 ## Disclaimers / important information
 
-- require a dedicated domain
 
-- the application doesn't store anything locally. Restore/uprade operation is basically reinstalling the app.
+- The application has 2 modes 
+    - multi user : each user store is own config itself.
+    - mono user : configuration is store locally in the server. Each visitor see the same page. 
+        /!\ For now, there is no any mechanism included for feed protection. Any visitor can modify the feed list.
+
+- If you like this software, Please consider to [support the Pétrolette project by sending a donation](https://liberapay.com/yPhil/donate). Even the smallest amount will help a lot.
+
 ## Documentation and resources
 
 * Upstream app code repository: <https://framagit.org/yphil/petrolette>
