@@ -19,7 +19,6 @@ La page d'actu qui ne sait rien de toi
 
 **Version incluse :** 1.6.0~ynh1
 
-
 **Démo :** https://petrolette.space
 
 ## Captures d'écran
