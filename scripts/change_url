@@ -72,6 +72,17 @@ ynh_script_progression --message="Stopping a systemd service..." --weight=1
 
 ynh_systemd_action --service_name=$app --action="stop" --log_path="/var/log/$app/$app.log"
 
+if [ $change_path -eq 1 ]
+then 
+    if [ $old_path == "/" ] ; then
+        sed -i "s|\$.get(\"/feed\", {|\$.get(\"$path_url/feed\", {|" public/js/PTL.feed.js
+    else if [ $new_path == "/" ] ; then
+        sed -i "s|\$.get(\"$old_path/feed\", {|\$.get(\"/feed\", {|" public/js/PTL.feed.js 
+    else
+        sed -i "s|\$.get(\"$old_path/feed\", {|\$.get(\"$path_url/feed\", {|" public/js/PTL.feed.js 
+    fi
+fi
+
 #=================================================
 # MODIFY URL IN NGINX CONF
 #=================================================
