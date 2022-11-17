@@ -112,7 +112,7 @@ pushd $final_path
 	    ynh_add_config --template="petrolette.config.json" --destination="petrolette.config.json"
 	fi
 	if [ "$path_url" != "/" ] ; then
-        sed -i "s|\$.get(\"/feed\", {|\$.get(\"$path_url/feed\", {|" public/js/PTL.feed.js 
+        sed -i "s|\$.get(\"/feed\", {|\$.get(\"feed\", {|" public/js/PTL.feed.js 
 	fi
 	[[ -v HOME ]] && TMP_HOME=$HOME
 	HOME=$(pwd)
