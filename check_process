@@ -4,7 +4,7 @@
 		is_public=1
 	; Checks
 		pkg_linter=1
-		setup_sub_dir=0
+		setup_sub_dir=1
 		setup_root=1
 		setup_nourl=0
 		setup_private=1
@@ -15,4 +15,4 @@
 		backup_restore=1
 		multi_instance=1
 		port_already_use=0
-		change_url=0
+		change_url=1

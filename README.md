@@ -5,7 +5,7 @@ It shall NOT be edited by hand.
 
 # Petrolette for YunoHost
 
-[![Integration level](https://dash.yunohost.org/integration/petrolette.svg)](https://dash.yunohost.org/appci/app/petrolette) ![](https://ci-apps.yunohost.org/ci/badges/petrolette.status.svg) ![](https://ci-apps.yunohost.org/ci/badges/petrolette.maintain.svg)  
+[![Integration level](https://dash.yunohost.org/integration/petrolette.svg)](https://dash.yunohost.org/appci/app/petrolette) ![Working status](https://ci-apps.yunohost.org/ci/badges/petrolette.status.svg) ![Maintenance status](https://ci-apps.yunohost.org/ci/badges/petrolette.maintain.svg)  
 [![Install Petrolette with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=petrolette)
 
 *[Lire ce readme en français.](./README_fr.md)*
@@ -17,34 +17,40 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 
 The news reader that doesn't know you
 
-**Shipped version:** 1.5.3~ynh1
+**Shipped version:** 1.6.0~ynh1
 
 **Demo:** https://petrolette.space
 
 ## Screenshots
 
-![](./doc/screenshots/petrolette.png)
+![Screenshot of Petrolette](./doc/screenshots/petrolette.webp)
 
 ## Disclaimers / important information
 
-- require a dedicated domain
 
-- the application doesn't store anything locally. Restore/uprade operation is basically reinstalling the app.
+- The application has 2 modes 
+    - multi user : each user store is own config itself.
+    - mono user : configuration is store locally in the server. Each visitor see the same page. 
+        /!\ For now, there is no any mechanism included for feed protection. Any visitor can modify the feed list.
+
+- If you like this software, Please consider to [support the Pétrolette project by sending a donation](https://liberapay.com/yPhil/donate). Even the smallest amount will help a lot.
+
 ## Documentation and resources
 
-* Upstream app code repository: https://framagit.org/yphil/petrolette
-* YunoHost documentation for this app: https://yunohost.org/app_petrolette
-* Report a bug: https://github.com/YunoHost-Apps/petrolette_ynh/issues
+* Upstream app code repository: <https://framagit.org/yphil/petrolette>
+* YunoHost documentation for this app: <https://yunohost.org/app_petrolette>
+* Report a bug: <https://github.com/YunoHost-Apps/petrolette_ynh/issues>
 
 ## Developer info
 
 Please send your pull request to the [testing branch](https://github.com/YunoHost-Apps/petrolette_ynh/tree/testing).
 
 To try the testing branch, please proceed like that.
-```
+
+``` bash
 sudo yunohost app install https://github.com/YunoHost-Apps/petrolette_ynh/tree/testing --debug
 or
 sudo yunohost app upgrade petrolette -u https://github.com/YunoHost-Apps/petrolette_ynh/tree/testing --debug
 ```
 
-**More info regarding app packaging:** https://yunohost.org/packaging_apps
+**More info regarding app packaging:** <https://yunohost.org/packaging_apps>
