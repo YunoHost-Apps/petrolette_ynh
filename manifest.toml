@@ -5,7 +5,7 @@ name = "Petrolette"
 description.en = "The news reader that doesn't know you"
 description.fr = "La page d'actu qui ne sait rien de toi"
 
-version = "1.6.0~ynh2"
+version = "1.6.0~ynh3"
 
 maintainers = ["oiseauroch"]
 
