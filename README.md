@@ -16,7 +16,8 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 
 ## Overview
 
-The news reader that doesn't know you
+Pétrolette is fully self-contained, makes no external call whatsoever, and embarks a total of zero tracker or "analysis" tool. Needless to say she is also completely ad-free.
+
 
 **Shipped version:** 1.6.0~ynh2
 
@@ -26,18 +27,9 @@ The news reader that doesn't know you
 
 ![Screenshot of Petrolette](./doc/screenshots/petrolette.webp)
 
-## Disclaimers / important information
-
-
-- The application has 2 modes 
-    - multi user : each user store is own config itself.
-    - mono user : configuration is store locally in the server. Each visitor see the same page. 
-        /!\ For now, there is no any mechanism included for feed protection. Any visitor can modify the feed list.
-
-- If you like this software, Please consider to [support the Pétrolette project by sending a donation](https://liberapay.com/yPhil/donate). Even the smallest amount will help a lot.
-
 ## Documentation and resources
 
+* Official app website: <https://framagit.org/yphil/petrolette>
 * Upstream app code repository: <https://framagit.org/yphil/petrolette>
 * YunoHost documentation for this app: <https://yunohost.org/app_petrolette>
 * Report a bug: <https://github.com/YunoHost-Apps/petrolette_ynh/issues>
