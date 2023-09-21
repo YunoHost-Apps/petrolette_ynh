@@ -5,7 +5,8 @@ It shall NOT be edited by hand.
 
 # Petrolette for YunoHost
 
-[![Integration level](https://dash.yunohost.org/integration/petrolette.svg)](https://dash.yunohost.org/appci/app/petrolette) ![Working status](https://ci-apps.yunohost.org/ci/badges/petrolette.status.svg) ![Maintenance status](https://ci-apps.yunohost.org/ci/badges/petrolette.maintain.svg)  
+[![Integration level](https://dash.yunohost.org/integration/petrolette.svg)](https://dash.yunohost.org/appci/app/petrolette) ![Working status](https://ci-apps.yunohost.org/ci/badges/petrolette.status.svg) ![Maintenance status](https://ci-apps.yunohost.org/ci/badges/petrolette.maintain.svg)
+
 [![Install Petrolette with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=petrolette)
 
 *[Lire ce readme en français.](./README_fr.md)*
