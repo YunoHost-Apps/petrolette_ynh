@@ -40,7 +40,7 @@ ram.runtime = "50M"
 
     [install.mono_user]
     ask.fr = "Cette instance est elle mono utilisateur ?"
-    ask.en = "Is this instance mono user ?"
+    ask.en = "Is this instance mono user?"
     help.fr = "Cette instance ne proposera qu'une seule selection de flux, la même pour tous les visiteurs"
     help.en = "This instance will have the same rss selection for any visitor visiting the page"
     type = "boolean"
