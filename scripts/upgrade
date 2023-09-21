@@ -69,7 +69,7 @@ pushd $install_dir
 	[[ -v HOME ]] && TMP_HOME=$HOME
         HOME=$(pwd)
         ynh_use_nodejs
-        ynh_exec_warn_less sudo -u $app env $ynh_node_load_PATH NODE_ENV=production $ynh_npm install --ignore-scripts
+        ynh_exec_warn_less NODE_ENV=production $ynh_npm install --ignore-scripts
         [[ -v TMP_HOME ]] && HOME=$TMP_HOME || unset HOME
 popd
 
