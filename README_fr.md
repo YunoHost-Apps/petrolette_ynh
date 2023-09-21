@@ -19,7 +19,7 @@ Si vous n’avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) po
 Pétrolette is fully self-contained, makes no external call whatsoever, and embarks a total of zero tracker or "analysis" tool. Needless to say she is also completely ad-free.
 
 
-**Version incluse :** 1.6.0~ynh2
+**Version incluse :** 1.6.0~ynh3
 
 **Démo :** https://petrolette.space
 
