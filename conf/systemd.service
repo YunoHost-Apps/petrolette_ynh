@@ -9,7 +9,7 @@ Environment="NODE_ENV=development"
 User=__APP__
 Group=__APP__
 ExecStart=/bin/sh -c ' npm run unmanaged'
-WorkingDirectory=__FINALPATH__/
+WorkingDirectory=__INSTALL_DIR__/
 Restart=always
 
 # Sandboxing options to harden security
