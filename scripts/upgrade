@@ -49,7 +49,7 @@ ynh_install_nodejs --nodejs_version=$NODEJS_VERSION
 # Create a dedicated systemd config
 ynh_add_systemd_config
 
-yunohost service add $app --description="The news reader that doesn't know you"
+yunohost service add $app --description="The news reader that doesn't know you" --log="/var/log/$app/$app.log"
 
 #=================================================
 # SPECIFIC UPGRADE
