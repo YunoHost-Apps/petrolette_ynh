@@ -69,7 +69,7 @@ pushd $install_dir
 	[[ -v HOME ]] && TMP_HOME=$HOME
         HOME=$(pwd)
         ynh_use_nodejs
-        ynh_exec_warn_less ynh_npm install --ignore-scripts
+        ynh_exec_warn_less $ynh_npm install --ignore-scripts
         [[ -v TMP_HOME ]] && HOME=$TMP_HOME || unset HOME
 popd
 

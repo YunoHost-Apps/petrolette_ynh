@@ -59,7 +59,7 @@ pushd $install_dir
 	HOME=$(pwd)
 	export NODE_ENV=production
 	ynh_use_nodejs
-	ynh_exec_warn_less ynh_npm install --ignore-scripts
+	ynh_exec_warn_less $ynh_npm install --ignore-scripts
 	[[ -v TMP_HOME ]] && HOME=$TMP_HOME || unset HOME
 popd
 
