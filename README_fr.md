@@ -16,6 +16,8 @@ Si vous n’avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) po
 
 ## Vue d’ensemble
 
+Pétrolette is a news reader that doesn't know you
+
 Pétrolette is fully self-contained, makes no external call whatsoever, and embarks a total of zero tracker or "analysis" tool. Needless to say she is also completely ad-free.
 
 
@@ -31,7 +33,6 @@ Pétrolette is fully self-contained, makes no external call whatsoever, and emba
 
 * Site officiel de l’app : <https://framagit.org/yphil/petrolette>
 * Dépôt de code officiel de l’app : <https://framagit.org/yphil/petrolette>
-* Documentation YunoHost pour cette app : <https://yunohost.org/app_petrolette>
 * Signaler un bug : <https://github.com/YunoHost-Apps/petrolette_ynh/issues>
 
 ## Informations pour les développeurs
