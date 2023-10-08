@@ -5,7 +5,8 @@ It shall NOT be edited by hand.
 
 # Petrolette for YunoHost
 
-[![Integration level](https://dash.yunohost.org/integration/petrolette.svg)](https://dash.yunohost.org/appci/app/petrolette) ![Working status](https://ci-apps.yunohost.org/ci/badges/petrolette.status.svg) ![Maintenance status](https://ci-apps.yunohost.org/ci/badges/petrolette.maintain.svg)  
+[![Integration level](https://dash.yunohost.org/integration/petrolette.svg)](https://dash.yunohost.org/appci/app/petrolette) ![Working status](https://ci-apps.yunohost.org/ci/badges/petrolette.status.svg) ![Maintenance status](https://ci-apps.yunohost.org/ci/badges/petrolette.maintain.svg)
+
 [![Install Petrolette with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=petrolette)
 
 *[Lire ce readme en français.](./README_fr.md)*
@@ -15,9 +16,18 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 
 ## Overview
 
-The news reader that doesn't know you
+Pétrolette is a news reader that doesn't know you
 
-**Shipped version:** 1.6.0~ynh2
+Pétrolette is fully self-contained, makes no external call whatsoever, and embarks a total of zero tracker or "analysis" tool. Needless to say she is also completely ad-free.
+
+The application has 2 modes 
+- multi user : each user store is own config itself.
+- mono user : configuration is store locally in the server. Each visitor see the same page. 
+
+For now, there is no any mechanism included for feed protection. Any visitor can modify the feed list.
+
+
+**Shipped version:** 1.6.0~ynh3
 
 **Demo:** https://petrolette.space
 
@@ -25,20 +35,10 @@ The news reader that doesn't know you
 
 ![Screenshot of Petrolette](./doc/screenshots/petrolette.webp)
 
-## Disclaimers / important information
-
-
-- The application has 2 modes 
-    - multi user : each user store is own config itself.
-    - mono user : configuration is store locally in the server. Each visitor see the same page. 
-        /!\ For now, there is no any mechanism included for feed protection. Any visitor can modify the feed list.
-
-- If you like this software, Please consider to [support the Pétrolette project by sending a donation](https://liberapay.com/yPhil/donate). Even the smallest amount will help a lot.
-
 ## Documentation and resources
 
+* Official app website: <https://framagit.org/yphil/petrolette>
 * Upstream app code repository: <https://framagit.org/yphil/petrolette>
-* YunoHost documentation for this app: <https://yunohost.org/app_petrolette>
 * Report a bug: <https://github.com/YunoHost-Apps/petrolette_ynh/issues>
 
 ## Developer info

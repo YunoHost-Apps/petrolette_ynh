@@ -9,6 +9,6 @@ services = ["__APP__"]
         [main.customization.instanceType]
         ask = "Mono user instance"
         type = "boolean"
-        help = "if this instance is mono user, the feed list will be the same for all users"
+        help = "If this instance is mono user, the feed list will be the same for all users"
         bind = "instance_type()"
 

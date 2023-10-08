@@ -1,0 +1,63 @@
+packaging_format = 2
+
+id = "petrolette"
+name = "Petrolette"
+description.en = "The news reader that doesn't know you"
+description.fr = "La page d'actu qui ne sait rien de toi"
+
+version = "1.6.0~ynh3"
+
+maintainers = ["oiseauroch"]
+
+[upstream]
+license = "AGPL-3.0-only"
+demo = "https://petrolette.space"
+code = "https://framagit.org/yphil/petrolette"
+website = "https://framagit.org/yphil/petrolette"
+fund = "https://liberapay.com/yPhil/donate"
+
+[integration]
+yunohost = ">= 11.2"
+architectures = "all"
+multi_instance = true
+ldap = false
+sso = false
+disk = "50M"
+ram.build = "500M"
+ram.runtime = "50M"
+
+[install]
+    [install.domain]
+    type = "domain"
+
+    [install.path]
+    type = "path"
+    default = "/petrolette"
+
+    [install.init_main_permission]
+    type = "group"
+    default = "visitors"
+
+    [install.mono_user]
+    ask.fr = "Cette instance est elle mono utilisateur ?"
+    ask.en = "Is this instance mono user?"
+    help.fr = "Cette instance ne proposera qu'une seule selection de flux, la même pour tous les visiteurs"
+    help.en = "This instance will have the same rss selection for any visitor visiting the page"
+    type = "boolean"
+    default = true
+
+[resources]
+        [resources.sources.main]
+        url = "https://framagit.org/yphil/petrolette/-/archive/v1.6.0/petrolette-v1.6.0.tar.gz"
+        sha256 = "25cff32873fb643882a1b43681842a646d4e46a9802da2ab086ab29f770b7d7e"
+
+    [resources.system_user]
+
+    [resources.install_dir]
+
+    [resources.ports]
+    main.default = 8001
+    https.default = 8002
+
+    [resources.permissions]
+    main.url = "/"
