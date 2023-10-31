@@ -39,6 +39,7 @@ For now, there is no any mechanism included for feed protection. Any visitor can
 
 * Site officiel de l’app : <https://framagit.org/yphil/petrolette>
 * Dépôt de code officiel de l’app : <https://framagit.org/yphil/petrolette>
+* YunoHost Store: <https://apps.yunohost.org/app/petrolette>
 * Signaler un bug : <https://github.com/YunoHost-Apps/petrolette_ynh/issues>
 
 ## Informations pour les développeurs
