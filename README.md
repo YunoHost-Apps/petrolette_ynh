@@ -27,7 +27,7 @@ The application has 2 modes
 For now, there is no any mechanism included for feed protection. Any visitor can modify the feed list.
 
 
-**Shipped version:** 1.6.0~ynh4
+**Shipped version:** 1.7.0~ynh1
 
 **Demo:** https://petrolette.space
 
