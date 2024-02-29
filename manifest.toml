@@ -5,7 +5,7 @@ name = "Petrolette"
 description.en = "The news reader that doesn't know you"
 description.fr = "La page d'actu qui ne sait rien de toi"
 
-version = "1.6.0~ynh4"
+version = "1.7.0~ynh1"
 
 maintainers = ["oiseauroch"]
 
@@ -48,8 +48,8 @@ ram.runtime = "50M"
 
 [resources]
         [resources.sources.main]
-        url = "https://framagit.org/yphil/petrolette/-/archive/v1.6.0/petrolette-v1.6.0.tar.gz"
-        sha256 = "25cff32873fb643882a1b43681842a646d4e46a9802da2ab086ab29f770b7d7e"
+        url = "https://framagit.org/yphil/petrolette/-/archive/v1.7.0/petrolette-v1.7.0.tar.bz2"
+        sha256 = "fcd509609a3c9749ae521bead9e05baa66d7119cb44d8d2143042dc5dd0a38ec"
         autoupdate.strategy = "latest_gitlab_tag"
 
     [resources.system_user]
