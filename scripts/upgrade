@@ -6,7 +6,7 @@
 # IMPORT GENERIC HELPERS
 #=================================================
 
-source _common.sh
+
 source /usr/share/yunohost/helpers
 
 #=================================================
@@ -44,7 +44,7 @@ ynh_script_progression --message="Upgrading NGINX web server configuration..." -
 # Create a dedicated NGINX config
 ynh_add_nginx_config
 
-ynh_install_nodejs --nodejs_version=$NODEJS_VERSION
+#REMOVEME? ynh_install_nodejs --#REMOVEME? nodejs_version=$NODEJS_VERSION
 
 # Create a dedicated systemd config
 ynh_add_systemd_config
@@ -68,7 +68,7 @@ pushd $install_dir
 
 	[[ -v HOME ]] && TMP_HOME=$HOME
         HOME=$(pwd)
-        ynh_use_nodejs
+        #REMOVEME? ynh_use_nodejs
         ynh_exec_warn_less $ynh_npm install --ignore-scripts
         [[ -v TMP_HOME ]] && HOME=$TMP_HOME || unset HOME
 popd
