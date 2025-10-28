@@ -1,25 +1,11 @@
 #!/bin/bash
 
-#=================================================
-# GENERIC START
-#=================================================
-# IMPORT GENERIC HELPERS
-#=================================================
-
-source _common.sh
 source /usr/share/yunohost/helpers
-
-#=================================================
-# INSTALL DEPENDENCIES
-#=================================================
-ynh_script_progression --message="Installing dependencies..."
-
-ynh_install_nodejs --nodejs_version=$NODEJS_VERSION
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
-ynh_script_progression --message="Setting up source files..."
+ynh_script_progression "Setting up source files..."
 
 # Download, check integrity, uncompress and patch the source from app.src
 ynh_setup_source --dest_dir="$install_dir"
@@ -27,13 +13,13 @@ ynh_setup_source --dest_dir="$install_dir"
 #=================================================
 # NGINX CONFIGURATION
 #=================================================
-ynh_script_progression --message="Configuring NGINX web server..."
+ynh_script_progression "Configuring NGINX web server..."
 
 # Create a dedicated NGINX config
-ynh_add_nginx_config
+ynh_config_add_nginx
 
 # Create a dedicated systemd config
-ynh_add_systemd_config
+ynh_config_add_systemd
 
 yunohost service add $app --description="The news reader that doesn't know you" --log="/var/log/$app/$app.log"
 
@@ -42,7 +28,7 @@ yunohost service add $app --description="The news reader that doesn't know you" 
 #=================================================
 # INSTALL PETROLETTE
 #=================================================
-ynh_script_progression --message="Installing application using node..."
+ynh_script_progression "Installing application using node..."
 
 pushd $install_dir
 # set port in configuration file
@@ -50,33 +36,30 @@ pushd $install_dir
 	sed -i "/HTTPS_PORT/s/[0-9]*[0-9]/$port_https/" package.json
 	# use custom home value to avoid bower storing values in root and have right errors
 	if [ $mono_user -eq 1 ] ; then
-	    ynh_add_config --template="petrolette.config.json" --destination="petrolette.config.json"
+	    ynh_config_add --template="petrolette.config.json" --destination="petrolette.config.json"
 	fi
 	if [ "$path" != "/" ] ; then
-        sed -i "s|\$.get(\"/feed\", {|\$.get(\"feed\", {|" public/js/PTL.feed.js 
+        sed -i "s|\$.get(\"/feed\", {|\$.get(\"feed\", {|" public/js/PTL.feed.js
+
 	fi
 	[[ -v HOME ]] && TMP_HOME=$HOME
 	HOME=$(pwd)
 	export NODE_ENV=production
-	ynh_use_nodejs
-	ynh_exec_warn_less $ynh_npm install --ignore-scripts
+
+	ynh_hide_warnings npm install --ignore-scripts
 	[[ -v TMP_HOME ]] && HOME=$TMP_HOME || unset HOME
 popd
-
-chmod 750 "$install_dir"
-chmod -R o-rwx "$install_dir"
-chown -R $app:$app "$install_dir"
 
 #=================================================
 # START SYSTEMD SERVICE
 #=================================================
-ynh_script_progression --message="Starting a systemd service..."
+ynh_script_progression "Starting $app's systemd service..."
 
 # Start a systemd service
-ynh_systemd_action --service_name=$app --action=start --log_path=systemd --line_match="Pétrolette HTTP Server running on port"
+ynh_systemctl --service=$app --action=start --log_path=systemd --wait_until="Pétrolette HTTP Server running on port"
 
 #=================================================
 # END OF SCRIPT
 #=================================================
 
-ynh_script_progression --message="Installation of $app completed"
+ynh_script_progression "Installation of $app completed"

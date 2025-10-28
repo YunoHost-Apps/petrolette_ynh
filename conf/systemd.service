@@ -6,7 +6,7 @@ After=network.target
 Type=simple
 User=__APP__
 Group=__APP__
-Environment="__YNH_NODE_LOAD_PATH__"
+Environment="PATH=__PATH_WITH_NODEJS__"
 Environment="NODE_ENV=development"
 ExecStart=/bin/sh -c ' npm run unmanaged'
 WorkingDirectory=__INSTALL_DIR__/
